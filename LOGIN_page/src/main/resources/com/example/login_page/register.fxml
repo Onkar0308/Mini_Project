@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane accessibleHelp="526.0" prefHeight="484.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login_page.RegisterController">
+   <children>
+      <AnchorPane prefHeight="82.0" prefWidth="534.0" style="-fx-background-color: #0598ff;">
+         <children>
+            <Label layoutX="98.0" layoutY="27.0" text="User Registration " textFill="#fcf9f9">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="shieldImageView" fitHeight="42.0" fitWidth="69.0" layoutX="32.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../IMAGES/shield.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="96.0" layoutY="113.0" text="FirstName">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="firstnameTextField" layoutX="92.0" layoutY="134.0" prefHeight="25.0" prefWidth="336.0" promptText="First Name" style="-fx-background-radius: 5;" />
+      <TextField fx:id="lastnameTextField" layoutX="92.0" layoutY="187.0" prefHeight="25.0" prefWidth="336.0" promptText="Last Name" style="-fx-background-radius: 5;" />
+      <Label layoutX="96.0" layoutY="167.0" text="LastName">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usernameTextField" layoutX="92.0" layoutY="239.0" prefHeight="25.0" prefWidth="336.0" promptText="Username" style="-fx-background-radius: 5;" />
+      <Label layoutX="96.0" layoutY="219.0" text="Username">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="95.0" layoutY="271.0" text="Password">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Password" layoutX="92.0" layoutY="290.0" prefHeight="25.0" prefWidth="336.0" promptText="Password" style="-fx-background-radius: 5;" />
+      <Label layoutX="95.0" layoutY="323.0" text="Confirm Password">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="confirmPassword" layoutX="92.0" layoutY="342.0" prefHeight="25.0" prefWidth="336.0" promptText="Confirm Password" style="-fx-background-radius: 5;" />
+      <Button fx:id="registerButton" layoutX="93.0" layoutY="386.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="26.0" prefWidth="336.0" style="-fx-background-radius: 5; -fx-background-color: #0598ff;" text="Register" textFill="#080808">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeButton" layoutX="92.0" layoutY="430.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="336.0" style="-fx-background-radius: 5; -fx-background-color: #0598ff;" text="close" textFill="#080808">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="registrationMessageLabel" layoutX="201.0" layoutY="104.0" text="User register successfully" />
+      <Label fx:id="incorrect" layoutX="245.0" layoutY="324.0" text="Password does not match" textFill="#f70d0d" />
+      <Button fx:id="Back" layoutX="6.0" layoutY="20.0" mnemonicParsing="false" onAction="#backtoLogin" text="Back" />
+   </children>
+</AnchorPane>
