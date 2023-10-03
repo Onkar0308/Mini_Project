@@ -21,17 +21,17 @@
       </AnchorPane>
       <ImageView fx:id="shieldImageView" fitHeight="42.0" fitWidth="69.0" layoutX="32.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../IMAGES/shield.jpg" />
+            <Image url="@../../../IMAGES/shield.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="96.0" layoutY="113.0" text="Name">
+      <Label layoutX="96.0" layoutY="113.0" text="FirstName">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="firstnameTextField" layoutX="92.0" layoutY="134.0" prefHeight="25.0" prefWidth="336.0" promptText="Name" style="-fx-background-radius: 5;" />
-      <TextField fx:id="lastnameTextField" layoutX="92.0" layoutY="187.0" prefHeight="25.0" prefWidth="336.0" promptText="Email ID" style="-fx-background-radius: 5;" />
-      <Label layoutX="96.0" layoutY="167.0" text="Email ID">
+      <TextField fx:id="firstnameTextField" layoutX="92.0" layoutY="134.0" prefHeight="25.0" prefWidth="336.0" promptText="First Name" style="-fx-background-radius: 5;" />
+      <TextField fx:id="lastnameTextField" layoutX="92.0" layoutY="187.0" prefHeight="25.0" prefWidth="336.0" promptText="Last Name" style="-fx-background-radius: 5;" />
+      <Label layoutX="96.0" layoutY="167.0" text="LastName">
          <font>
             <Font size="13.0" />
          </font>
@@ -59,13 +59,13 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="closeButton" layoutX="92.0" layoutY="430.0" mnemonicParsing="false" onAction="#backtoLogin" prefHeight="26.0" prefWidth="336.0" style="-fx-background-radius: 5; -fx-background-color: #0598ff;" text="close" textFill="#080808">
+      <Button fx:id="closeButton" layoutX="92.0" layoutY="430.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="336.0" style="-fx-background-radius: 5; -fx-background-color: #0598ff;" text="close" textFill="#080808">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Label fx:id="registrationMessageLabel" layoutX="201.0" layoutY="104.0" />
-      <Label fx:id="incorrect" layoutX="245.0" layoutY="324.0" textFill="#f70d0d" />
+      <Label fx:id="registrationMessageLabel" layoutX="201.0" layoutY="104.0" text="User register successfully" />
+      <Label fx:id="incorrect" layoutX="245.0" layoutY="324.0" text="Password does not match" textFill="#f70d0d" />
       <Button fx:id="Back" layoutX="6.0" layoutY="20.0" mnemonicParsing="false" onAction="#backtoLogin" text="Back" />
    </children>
 </AnchorPane>

@@ -20,13 +20,17 @@ public class HelloApplication extends Application {
             stage.show();
             stage.setResizable(false);
             stage.setTitle("BODY MASS INDEX"); // set title of app
+
         } catch (Exception e) {
             e.printStackTrace();
             e.getCause();
         }
+
     }
+
 
     public static void main(String[] args) {
         launch();
     }
 }
+

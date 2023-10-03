@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <LineChart fx:id="chart" layoutX="217.0" prefHeight="470.0" prefWidth="447.0" title="BMI" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="217.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
@@ -24,7 +23,7 @@
          <children>
             <AnchorPane prefHeight="470.0" prefWidth="236.0">
                <children>
-                  <Button layoutY="194.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="210.0" style="-fx-background-color: #0000FF; -fx-border-color: BLACK;" text="BMI_CALCULATOR" textFill="#fcf9f9" />
+                  <Button fx:id="BMI" layoutY="194.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="210.0" style="-fx-background-color: #0000FF; -fx-border-color: BLACK;" text="BMI_CALCULATOR" textFill="#fcf9f9" />
                   <ImageView fx:id="brandingImageView" fitHeight="140.0" fitWidth="149.0" layoutX="34.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../../IMAGES/456.jpg" />

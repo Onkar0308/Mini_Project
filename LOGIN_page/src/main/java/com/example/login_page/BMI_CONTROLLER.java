@@ -5,18 +5,25 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class BMI_CONTROLLER implements Initializable {
@@ -34,7 +41,18 @@ public class BMI_CONTROLLER implements Initializable {
     @FXML
     private ImageView brandingImageView;
     @FXML
+    private ImageView yogaimage;
+    @FXML
     private Object event;
+    @FXML
+    private Button calculatebmi;
+
+    @FXML
+    private Button graph;
+    @FXML
+    private AnchorPane scene;
+    Stage stage;
+
     @FXML
     private Exception IOException;
 
@@ -43,31 +61,87 @@ public class BMI_CONTROLLER implements Initializable {
         Image brandingImage = new Image(brandingFile.toURI().toString());
         brandingImageView.setImage(brandingImage);
 
+        File yogaFile = new File("IMAGES/yoga12.jpg");
+        Image yogaImage = new Image(yogaFile.toURI().toString());
+        yogaimage.setImage(yogaImage);
     }
-        public void calculate_BMI(ActionEvent event) throws IOException{
-            if (h1.getText().trim().isEmpty() || w1.getText().trim().isEmpty()) {
-                Alert a = new Alert(AlertType.NONE);
-                a.setContentText("Please Enter correct Height and Weight");
-                a.setAlertType(AlertType.ERROR);
-                a.show();
-            } else {
-                float a = Float.parseFloat(h1.getText());
-                float b = Float.parseFloat(w1.getText());
-                float bmi = b / (a * a);
-                H1.setText("" + bmi);
 
-                if (bmi <= 18.5) {
-                    W1.setText("UnderWeight");
-                } else if (bmi <= 24.9) {
-                    W1.setText("Normal Weight");
-                } else if (bmi <= 29.9) {
-                    W1.setText("OverWeight");
+    public void calculate_BMI(ActionEvent event) throws IOException, SQLException {
+        double h = Double.parseDouble(h1.getText());
+        double w = Double.parseDouble(w1.getText());
+
+        double BMI = w / (h * h);
+        H1.setText(" " + BMI);
+
+        if (BMI <= 18.5) {
+            W1.setText("UnderWeight");
+        } else if (BMI <= 24.9) {
+            W1.setText("Normal Weight");
+        } else if (BMI <= 29.5) {
+            W1.setText("OverWeight");
+        } else if (BMI >= 30) {
+            W1.setText("Obese");
+
+            Connection connectDB = null;
+            try {
+                DatabaseConnection connectNow = new DatabaseConnection();
+                connectDB = connectNow.getConnection();
+
+                String insertFields = "INSERT INTO user_account (BMI) VALUES (?)";
+                PreparedStatement preparedStatement = connectDB.prepareStatement(insertFields);
+                preparedStatement.setDouble(1, BMI);
+
+                int rowsAffected = preparedStatement.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("BMI record inserted successfully.");
                 } else {
-                    W1.setText("Obese");
+                    System.out.println("Failed to insert BMI record.");
                 }
-
-
+            } catch (SQLException e) {
+                e.printStackTrace();
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Database Error");
+                alert.setHeaderText(null);
+                alert.setContentText("An error occurred while interacting with the database. Please check your database configuration.");
+                alert.showAndWait();
+            } finally {
+                if (connectDB != null) {
+                    try {
+                        connectDB.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
-
     }
+
+    public void GRAPH() {
+        try {
+            Object root = FXMLLoader.load(getClass().getResource("GRAPH.fxml"));
+            Scene scene = new Scene((Parent) root);
+            Stage graph = new Stage();
+            graph.setScene(scene);
+            graph.show();
+            graph.initStyle(StageStyle.UNDECORATED);
+            graph.setResizable(false);
+            graph.setTitle("Graph");
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+    public void LOGOUTBUTTON(ActionEvent event){
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("LOGOUT");
+        alert.setHeaderText("YOU're about to logout");
+        alert.setContentText("DO YOU WANT TO SAVE BEFORE EXITING?:");
+
+        if (alert.showAndWait().get() == ButtonType.OK){
+            stage = (Stage) scene.getScene().getWindow();
+            System.out.println("You sucessfully logged out");
+            stage.close();;
+        }
+    }
+}
