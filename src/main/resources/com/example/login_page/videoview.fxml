@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login_page.WORKOUTCONTROLLER">
+    <children>
+        <ImageView fitHeight="411.0" fitWidth="714.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../IMAGES/shutterstock.jpg" />
+            </image>
+        </ImageView>
+        <Label layoutX="20.0" layoutY="14.0" prefHeight="48.0" prefWidth="178.0" text="WORKOUTS:" textFill="#403b3b">
+            <font>
+                <Font name="Berlin Sans FB Bold" size="29.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="13.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../IMAGES/585e473bcb11b227491c3381.png" />
+            </image>
+        </ImageView>
+        <Button blendMode="MULTIPLY" layoutX="13.0" layoutY="268.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="47.0" />
+        <MediaView fitHeight="200.0" fitWidth="200.0" layoutX="257.0" layoutY="62.0" />
+    </children>
+</AnchorPane>

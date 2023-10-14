@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assemblypoint.personalinformationcontroller">
+    <children>
+        <ImageView fitHeight="415.0" fitWidth="721.0" layoutX="-1.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../IMAGES/Untitled6.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="14.0" layoutY="14.0" text="EDIT PERSONAL INFORMATION:" textFill="WHITE">
+            <font>
+                <Font name="Berlin Sans FB Bold" size="26.0" />
+            </font>
+        </Label>
+        <TextField fx:id="firstname" layoutX="14.0" layoutY="76.0" prefHeight="30.0" prefWidth="176.0" promptText="edit first name" />
+        <TextField fx:id="phonenumber" layoutX="14.0" layoutY="200.0" prefHeight="30.0" prefWidth="176.0" promptText="edit phone number" />
+        <TextField fx:id="lastname" layoutX="14.0" layoutY="139.0" prefHeight="30.0" prefWidth="176.0" promptText="edit last name" />
+        <Button blendMode="MULTIPLY" layoutX="153.0" layoutY="344.0" mnemonicParsing="false" onAction="#submitChangesHandler" prefHeight="36.0" prefWidth="126.0" text="Submit Changes">
+            <font>
+                <Font size="13.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="36.0" fitWidth="72.0" layoutX="33.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../IMAGES/585e473bcb11b227491c3381.png" />
+            </image>
+        </ImageView>
+        <Button blendMode="MULTIPLY" layoutX="29.0" layoutY="344.0" mnemonicParsing="false" onAction="#backHandler" prefHeight="36.0" prefWidth="52.0" />
+        <ImageView fitHeight="245.0" fitWidth="463.0" layoutX="394.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../IMAGES/edit-icon-png-16x16-4.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>

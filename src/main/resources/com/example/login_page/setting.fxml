@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login_page.SETTINGCONTROLLER">
+    <children>
+        <ImageView fx:id="all" fitHeight="428.0" fitWidth="728.0" layoutX="-8.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../IMAGES/health-and-fitness-events-in-boston-rally-sports-and-general-assembly1j.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="setting" fitHeight="362.0" fitWidth="365.0" layoutX="356.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../IMAGES/Tools-PNG-Transparent-Image.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="password" blendMode="MULTIPLY" layoutX="116.0" layoutY="80.0" mnemonicParsing="false" onAction="#managepassword" prefHeight="63.0" prefWidth="199.0" text="Password">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="22.0" />
+            </font>
+        </Button>
+        <Button fx:id="logout" blendMode="MULTIPLY" layoutX="116.0" layoutY="183.0" mnemonicParsing="false" onAction="#logouthandler" prefHeight="63.0" prefWidth="199.0" text="Log Out">
+            <font>
+                <Font name="Arial Rounded MT Bold" size="23.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="back1" fitHeight="40.0" fitWidth="55.0" layoutX="28.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../../../../IMAGES/585e473bcb11b227491c3381.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="116.0" text="Settings:">
+            <font>
+                <Font name="Berlin Sans FB Bold" size="28.0" />
+            </font>
+        </Label>
+        <Button fx:id="back" blendMode="MULTIPLY" layoutX="24.0" layoutY="346.0" mnemonicParsing="false" onAction="#backhandler" prefHeight="40.0" prefWidth="55.0" />
+    </children>
+</AnchorPane>
