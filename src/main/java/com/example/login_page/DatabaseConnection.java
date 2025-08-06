@@ -6,9 +6,9 @@ import javafx.collections.FXCollections;
 import java.sql.DriverManager;
 
 public class DatabaseConnection {
-    public Connection databaseLink;
+    public static Connection databaseLink;
 
-    public Connection getConnection(){
+    public static Connection getConnection(){
         String databaseName  = "mysql1";
         String databaseUser   = "root";
         String databasePassword = "12345";

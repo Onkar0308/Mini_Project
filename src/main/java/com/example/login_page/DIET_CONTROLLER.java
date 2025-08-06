@@ -46,7 +46,7 @@ public class DIET_CONTROLLER implements Initializable{
     private java.util.Objects Objects;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        
+
      File brandingFile = new File("IMAGES/456.jpg");
         Image brandingImage = new Image(brandingFile.toURI().toString());
         brandingImageView.setImage(brandingImage);
@@ -58,36 +58,95 @@ public class DIET_CONTROLLER implements Initializable{
         double BMI = w / (h * h);
 
 
-        if (BMI <= 18.5) {
-            L1.setText(" Increase calorie intake: Consume more calories than your body burns to promote weight gain.\n" +
-                    "   - Balanced meals: Include protein-rich foods (lean meats, fish, poultry, beans), complex carbohydrates (whole grains, fruits, vegetables), and healthy fats (nuts, avocados, olive oil).\n" +
-                    "   - Frequent meals: Eat 5-6 small, nutrient-dense meals/snacks throughout the day.\n" +
-                    "   - Protein shakes or smoothies: These can be a convenient way to increase calorie and protein intake.\n" +
-                    "   - Healthy snacks: Opt for nuts, seeds, yogurt, and cheese.");
+        if (BMI <= 18.5 ) {
+            L1.setText("Breakfast:\n" +
+                    "Scrambled eggs with spinach and tomatoes,\n" +
+                    "Whole-grain toast with almond butter or peanut butter,\n" +
+                    "A piece of fruit (e.g., banana or an apple),\n" +
+                    "A glass of whole milk or a dairy-free alternative (e.g., almond milk).\n" +
+                    "Mid-Morning Snack:\n" +
+                    "Greek yogurt with honey and mixed berries,\n" +
+                    "Handful of mixed nuts (almonds, walnuts, or cashews).\n" +
+                    "Lunch:\n" +
+                    "Grilled chicken or tofu and vegetable stir-fry,\n" +
+                    "Brown rice or quinoa,Steamed broccoli or other vegetables,\n" +
+                    "A side salad with olive oil and vinegar dressing.\n" +
+                    "Afternoon Snack:\n" +
+                    "Hummus with carrot and cucumber sticks,\n" +
+                    "Whole-grain crackers,A piece of string cheese (or a dairy-free alternative).\n" +
+                    "Dinner:\n" +
+                    "Baked salmon or a plant-based protein source (e.g., lentils),\n" +
+                    "Sweet potato or quinoa ,Steamed or roasted mixed vegetables,\n" +
+                    "A side salad with a healthy dressing.\n" +
+                    "Evening Snack:\n" +
+                    "Greek yogurt or a protein-rich smoothie (with banana, protein powder, and almond milk),\n" +
+                    "A small handful of dried fruits and nuts.");
         } else if (BMI <= 24.9) {
-            L1.setText(" - Maintain a balanced diet: Continue eating a variety of foods from all food groups.\n" +
-                    "   - Portion control: Be mindful of portion sizes to maintain your current weight.\n" +
-                    "   - Nutrient-dense choices: Choose whole grains, lean proteins, and plenty of fruits and vegetables.\n" +
-                    "   - Stay hydrated: Drink plenty of water throughout the day.\n" +
-                    "   - Regular exercise: Engage in regular physical activity for overall health.\n");
+            L1.setText(" Breakfast:\n" +
+                    "Oatmeal topped with sliced bananas, berries, and a sprinkle of nuts (e.g.,almonds or walnuts),\n" +
+                    "A glass of freshly squeezed orange juice or a piece of whole fruit.\n" +
+                    "Mid-Morning Snack:\n" +
+                    "Greek yogurt with a drizzle of honey and a handful of granola,\n" +
+                    "A serving of baby carrots or cucumber slices.\n" +
+                    "Lunch:\n" +
+                    "Grilled chicken or tofu and vegetable wrap with whole-grain tortilla,\n" +
+                    "A side of mixed greens with balsamic vinaigrette dressing,\n" +
+                    "A piece of fruit (e.g.,apple or pear).\n" +
+                    "Afternoon Snack:\n" +
+                    "A smoothie with spinach, banana, and protein powder,\n" +
+                    "Whole-grain crackers with hummus or peanut butter.\n" +
+                    "Dinner:\n" +
+                    "Baked or grilled fish (e.g.,salmon) or a plant-based protein source (e.g.,beans or lentils),\n" +
+                    "Quinoa or brown rice,\n" +
+                    "Steamed or roasted vegetables (e.g., broccoli, carrots, or asparagus)\n" +
+                    "A side salad with a variety of fresh vegetables.\n");
         } else if (BMI <= 29.5) {
-            L1.setText("*1. Calculate Your Daily Calorie Needs:*\n" +
-                    "   - Start by determining your maintenance calorie intake (the number of calories you need to maintain your current weight). You can use online calculators or consult with a dietitian for a more accurate estimate.\n" +
-                    "   - Create a calorie deficit by consuming fewer calories than your maintenance level.\n" +
-                    "\n" +
-                    "*2. Balanced Diet:*\n" +
-                    "   - Focus on whole, unprocessed foods like fruits, vegetables, lean proteins, whole grains, and healthy fats.\n" +
-                    "   - Avoid or limit sugary beverages, processed snacks, and foods high in added sugars and saturated fats.\n" +
-                    "\n" +
-                    "*3. Portion Control:*\n" +
-                    "   - Be mindful of portion sizes to avoid overeating. Use smaller plates and utensils to help with this.\n" +
-                    "   - Pay attention to hunger and fullness cues to avoid unnecessary snacking.");
+            L1.setText("Breakfast:\n" +
+                    "Scrambled egg whites with sautéed spinach and tomatoes,\n" +
+                    "A small portion of oatmeal with a sprinkle of chia seeds or flaxseeds,\n" +
+                    "A piece of fruit (e.g., a medium-sized apple or a small banana),\n" +
+                    "A glass of water or herbal tea.\n" +
+                    "Mid-Morning Snack:\n" +
+                    "A serving of Greek yogurt or low-fat yogurt,\n" +
+                    "A handful of berries or a small piece of fruit.\n" +
+                    "Lunch:\n" +
+                    "Grilled chicken or a plant-based protein source (tofu or beans),\n" +
+                    "A large salad with a variety of colorful vegetables, such as lettuce, tomatoes, cucumbers, and peppers,\n" +
+                    "A vinaigrette dressing with lower fat content,A small serving of brown rice or quinoa.\n" +
+                    "Afternoon Snack:\n" +
+                    "Sliced cucumbers or carrot sticks with hummus,\n" +
+                    "A piece of string cheese or a small handful of almonds.\n" +
+                    "Dinner:\n" +
+                    "Baked or broiled fish (e.g., salmon or tilapia) or a lean protein source,\n" +
+                    "Steamed or roasted non-starchy vegetables (e.g., broccoli, cauliflower, or asparagus),\n" +
+                    "A side salad with a light dressing,\n" +
+                    "A small serving of whole grains (e.g., quinoa or wild rice).\n" +
+                    "Evening Snack:\n" +
+                    "A small bowl of mixed berries or a small apple,\n" +
+                    "A cup of herbal tea or water.");
         } else if (BMI >= 30) {
-            L1.setText("- Calorie control: Reduce calorie intake to create a calorie deficit for weight loss.\n" +
-                    "   - Portion control: Be mindful of portion sizes to avoid overeating.\n" +
-                    "   - Balanced diet: Focus on whole, unprocessed foods such as fruits, vegetables, lean proteins, and whole grains.\n" +
-                    "   - Limit sugary and high-fat foods: Reduce consumption of sugary beverages, fried foods, and sweets.\n" +
-                    "   - Regular exercise: Combine a healthy diet with regular physical activity.");
+            L1.setText("Breakfast:\n" +
+                    "Scrambled eggs with spinach and mushrooms,Whole-grain toast,\n" +
+                    "A serving of mixed berries,A glass of water or herbal tea.\n" +
+                    "Mid-Morning Snack:\n" +
+                    "A small handful of mixed nuts (unsalted),\n" +
+                    "A piece of fruit (e.g., an orange or a small apple).\n" +
+                    "Lunch:\n" +
+                    "Grilled chicken or chickpea salad with a variety of colorful vegetables(e.g.,cherry tomatoes, bell peppers, and cucumbers),\n" +
+                    "Olive oil and balsamic vinegar dressing,\n" +
+                    "A small serving of quinoa ,A glass of water or herbal tea,\n" +
+                    "Afternoon Snack:\n" +
+                    "Greek yogurt with a drizzle of honey and a few sliced strawberries,\n" +
+                    "A glass of water.\n" +
+                    "Dinner:\n" +
+                    "Baked or grilled fish (e.g., cod or haddock) or a lean protein source,\n" +
+                    "Steamed broccoli and cauliflower,\n" +
+                    "A small serving of brown rice,\n" +
+                    "A side salad with a light dressing,\n" +
+                    "A glass of water.\n" +
+                    "Evening Snack:\n" +
+                    "Sliced cucumber and carrot sticks with hummus\n" +
+                    "A cup of herbal tea or water");
         }
     }
 

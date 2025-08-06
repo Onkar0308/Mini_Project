@@ -1,13 +1,7 @@
 package com.example.login_page;
-
-
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+import java.util.Optional;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,12 +17,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.stage.StageStyle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.control.TextInputDialog;
 
 public class SETTINGCONTROLLER implements Initializable {
 
@@ -83,15 +78,7 @@ public class SETTINGCONTROLLER implements Initializable {
         window.setScene(scene);
         window.show();
     }
-    public void managepassword(ActionEvent event)throws Exception{
-        Parent table;
-        table = FXMLLoader.load(getClass().getResource("personalinformation.fxml"));
-        Scene scene=new Scene(table);
-        scene.setRoot(table);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
-    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         File allfile = new File("IMAGES/health-and-fitness-events-in-boston-rally-sports-and-general-assembly1j.jpg");
@@ -107,4 +94,36 @@ public class SETTINGCONTROLLER implements Initializable {
         setting.setImage(settingImage);
 
     }
+    public void managepassword(ActionEvent event) {
+        // Create a dialog for entering the password
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Password Confirmation");
+        dialog.setHeaderText("Enter your password:");
+        dialog.setContentText("Password:");
+
+        // Show the dialog and process the result
+        Optional<String> result = dialog.showAndWait();
+
+        result.ifPresent(enteredPassword -> {
+            // Replace "your_actual_hashed_password" with the hashed password you want to compare
+            String storedHashedPassword = "$2a$10$examplehashhere"; // Replace with the actual hashed password
+            String storedUsername = "exampleUsername"; // Replace with the actual username stored in the database
+
+            if (BCrypt.checkpw(enteredPassword, storedHashedPassword)) {
+                // Display the username
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Password Correct");
+                alert.setHeaderText("Welcome, " + storedUsername);
+                alert.showAndWait();
+            } else {
+                // Display an error message
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Password Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Invalid password. Please try again.");
+                alert.showAndWait();
+            }
+        });
+    }
+
 }

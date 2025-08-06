@@ -69,7 +69,7 @@ public class UPPERCONTROLLER implements Initializable {
 
     public void backhandler(ActionEvent event)throws Exception {
         Parent table;
-        table = FXMLLoader.load(getClass().getResource("main.fxml"));
+        table = FXMLLoader.load(getClass().getResource("WORKOUT.fxml"));
         Scene scene=new Scene(table);
         scene.setRoot(table);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();

@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
+import org.mindrot.jbcrypt.BCrypt;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -58,36 +58,46 @@ public class FORGOT_PASSWORD {
 
 
     public void forgetpassword(ActionEvent event){
-        System.out.println("Button clicked!");
-        if (!EMAIL.getText().isBlank() && !USER.getText().isBlank()
-                && !PASSWORD.getText().isBlank() && !CNFPASS.getText().isBlank()){
-            forgotPassword(event);
-        }
-        else {
-            incorrect.setText(null);
-            incorrect1.setStyle(null);
-            incorrect2.setStyle(null);
-        }
-        if(EMAIL.getText().isBlank()){
-            incorrect1.setText("⚠ Please enter email-id!");
-            EMAIL.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
-        }
-        else {
-            incorrect1.setText(null);
-            EMAIL.setStyle(null);
-        }
-        if(PASSWORD.getText().isBlank()){
-            incorrect.setText("⚠ Please enter your mobile no!");
+        System.out.println(PASSWORD.getText());
+        System.out.println(CNFPASS.getText());
+
+        if (PASSWORD.getText().equals(CNFPASS.getText())) {
+
+            DatabaseConnection connection = new DatabaseConnection();
+            Connection connection1 = connection.getConnection();
+
+            // ... (other code)
+
+            String insertUserDetails = "UPDATE `mysql1`.`users` SET `password` = ? WHERE (`email` = ?)\n";
+
+            try {
+                PreparedStatement preparedStatement = connection1.prepareStatement(insertUserDetails);
+                // Hash the password before storing it
+                String hashedPassword = BCrypt.hashpw(PASSWORD.getText(), BCrypt.gensalt());
+                preparedStatement.setString(1, hashedPassword); // Set the hashed password
+                preparedStatement.setString(2, EMAIL.getText());
+                int b = preparedStatement.executeUpdate();
+
+                if (b == 1) {
+                    System.out.println("Password updated successfully!");
+                } else {
+                    System.out.println("Failed to update password");
+                }
+
+                // ... (other code)
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            incorrect.setText("⚠ Both password fields should have the same value");
             PASSWORD.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
+            CNFPASS.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-border-radius: 15px");
         }
-        else {
-            incorrect.setText(null);
-            PASSWORD.setStyle(null);
-        }
-
-
-
     }
+
+
+
+
 
     public void forgotPassword(ActionEvent event) {
         System.out.println(PASSWORD.getText());
@@ -100,7 +110,7 @@ public class FORGOT_PASSWORD {
             Connection connection1 = connection.getConnection();
 
             System.out.println("inside if");
-            String verifylogin = "select count(1) from user_account where  Email_ID  = '" + EMAIL.getText() + "' and username = '" + USER.getText() + "'";
+            String verifylogin = "select count(1) from users where  email  = '" + EMAIL.getText() + "' and username = '" + USER.getText() + "'";
             Statement statement = null;
             try {
                 statement = connection1.createStatement();
@@ -111,7 +121,7 @@ public class FORGOT_PASSWORD {
                         System.out.println("inside if");
                         try {
                             System.out.println("Inside try");
-                            String insertUserDetails = "UPDATE `mysql1`.`user_account` SET `password` = '" + PASSWORD.getText() + "' WHERE (`email_id` = '" + EMAIL.getText() + "')\n";
+                            String insertUserDetails = "UPDATE `mysql1`.`users` SET `password` = '" + PASSWORD.getText() + "' WHERE (`email` = '" + EMAIL.getText() + "')\n";
                             statement = connection1.createStatement();
                             int b = statement.executeUpdate(insertUserDetails);
                             if (b == 1) {

@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -36,19 +35,9 @@
                 <Image url="@../../../../../../IMAGES/BMIFinal.png" />
             </image>
         </ImageView>
-        <Button fx:id="bmi" blendMode="MULTIPLY" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" onAction="#bmihandler" prefHeight="40.0" prefWidth="131.0" text="calculate BMI">
-            <effect>
-                <Blend />
-            </effect>
-        </Button>
         <Label fx:id="bmilabel" layoutX="206.0" layoutY="62.0" prefHeight="40.0" prefWidth="82.0" textFill="#ffa4a4">
             <font>
                 <Font name="Berlin Sans FB Demi Bold" size="18.0" />
-            </font>
-        </Label>
-        <Label alignment="CENTER" layoutX="152.0" layoutY="62.0" prefHeight="40.0" prefWidth="54.0" text="BMI=" textFill="#ffa4a4">
-            <font>
-                <Font name="Berlin Sans FB Demi Bold" size="22.0" />
             </font>
         </Label>
         <ImageView fx:id="back1" fitHeight="33.0" fitWidth="43.0" layoutX="16.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
